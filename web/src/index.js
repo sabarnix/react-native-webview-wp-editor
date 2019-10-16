@@ -109,7 +109,7 @@ const tinyMCEPreInit = {
             selector: "#description",
             wpautop: true,
             indent: false,
-            toolbar1: "formatselect,bold,italic,bullist,numlist,blockquote,alignleft,aligncenter,alignright,link,wp_more,spellchecker,fullscreen,wp_adv",
+            toolbar1: "formatselect,bold,italic,bullist,numlist,blockquote,alignleft,aligncenter,alignright,link,wp_more,spellchecker,wp_adv",
             toolbar2: "strikethrough,hr,forecolor,pastetext,removeformat,charmap,outdent,indent,undo,redo",
             toolbar3: "",
             toolbar4: "",

@@ -1,8 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 
 const env = process.env.NODE_ENV || 'development';
 const isDev = env === 'development';
@@ -17,15 +17,17 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [
-        new HtmlWebPackPlugin({
-            template: "./web/src/index.html",
-            filename: "./index.html"
-        }),
-        new HtmlWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: isDev ? '[name].css' : '[name].[hash].css',
             chunkFilename: isDev ? '[id].css' : '[id].[hash].css',
         }),
+        new HtmlWebPackPlugin({
+            template: "./web/src/index.html",
+            inject: true,
+            filename: "./index.html",
+            inlineSource: '.(js|css)$'
+        }),
+        new HtmlWebpackInlineSourcePlugin(),
     ],
     module: {
         rules: [{
