@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
+    "prod": "webpack",
     "dev": "webpack-dev-server --content-base web/dist --hot",
     "install": "napa git+https://github.com/WordPress/WordPress"
   },
