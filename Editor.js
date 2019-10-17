@@ -7,7 +7,6 @@ import {
   Alert
 } from 'react-native';
 import PropTypes from 'prop-types';
-import AssetUtils from 'expo-asset-utils';
 
 // path to the file that the webview will load
 
@@ -24,14 +23,7 @@ export default class WebViewQuillEditor extends React.Component {
     };
   }
 
-  componentDidMount = async () => {
-    try {
-      const asset = await AssetUtils.resolveAsync(requiredAsset)
-      console.log({asset})
-      this.setState({ asset })
-    } catch (error) {
-      console.log({ error })
-    }
+  componentDidMount = () => {
   };
 
   createWebViewRef = (webview) => {
@@ -171,7 +163,7 @@ export default class WebViewQuillEditor extends React.Component {
           <WebView
             style={{ ...StyleSheet.absoluteFillObject }}
             ref={this.createWebViewRef}
-            source={{ uri: this.state.asset.uri }}
+            source={requiredAsset}
             onLoadEnd={this.onWebViewLoaded}
             onMessage={this.handleMessage}
             startInLoadingState={true}
